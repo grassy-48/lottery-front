@@ -4,8 +4,8 @@ use Slim\Container;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use LotteryFront\Http;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\ServerException;
+use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\Exception\ConnectException;
 
 class DrawEvtController
 {
@@ -52,6 +52,9 @@ class DrawEvtController
                     $this->app->get('logger')->error("API Response error [code: $statusCode, body: $body]");
                 }
                 return $response->withRedirect('/error?code=LT0006');
+            } catch (ConnectException $e) {
+                $this->app->get('logger')->error("API Response error [Unexpected Response]");
+                return $response->withRedirect('/error?code=LT0003');
             }
         return $this->app->view->render($response, 'draw_evt_confirm', $array);
     }
@@ -87,6 +90,9 @@ class DrawEvtController
                     $body = $e->getResponse()->getBody();
                     $this->app->get('logger')->error("API Response error [code: $statusCode, body: $body]");
                 }
+                return $response->withRedirect('/error?code=LT0003');
+            } catch (ConnectException $e) {
+                $this->app->get('logger')->error("API Response error [Unexpected Response]");
                 return $response->withRedirect('/error?code=LT0003');
             }
         return $this->app->view->render($response, 'draw_evt_elected', $array);

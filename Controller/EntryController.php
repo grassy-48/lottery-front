@@ -5,6 +5,7 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use LotteryFront\Http;
 use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\Exception\ConnectException;
 
 class EntryController
 {
@@ -33,6 +34,9 @@ class EntryController
                 $this->app->get('logger')->error("API Response error [code: $statusCode, body: $body]");
             }
             return $response->withRedirect('/error?code=LT0004');
+        } catch (ConnectException $e) {
+            $this->app->get('logger')->error("API Response error [Unexpected Response]");
+            return $response->withRedirect('/error?code=LT0003');
         }
         $codeimg = [];
         foreach ($array['codes'] as $c) {

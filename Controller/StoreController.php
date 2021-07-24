@@ -5,6 +5,7 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use LotteryFront\Http;
 use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\Exception\ConnectException;
 
 class StoreController
 {
@@ -39,6 +40,9 @@ class StoreController
                     $this->app->get('logger')->error("API Response error [code: $statusCode, body: $body]");
                 }
                 return $response->withRedirect('/error?code=LT0002');
+            } catch (ConnectException $e) {
+                $this->app->get('logger')->error("API Response error [Unexpected Response]");
+                return $response->withRedirect('/error?code=LT0003');
             }
         } 
         return $this->app->view->render($response, 'store_complete', $array);
@@ -63,6 +67,9 @@ class StoreController
                     $this->app->get('logger')->error("API Response error [code: $statusCode, body: $body]");
                 }
                 return $response->withRedirect('/error?code=LT0001');
+            } catch (ConnectException $e) {
+                $this->app->get('logger')->error("API Response error [Unexpected Response]");
+                return $response->withRedirect('/error?code=LT0003');
             }
         } 
 
@@ -97,6 +104,9 @@ class StoreController
                     $this->app->get('logger')->error("API Response error [code: $statusCode, body: $body]");
                 }
                 return $response->withRedirect('/error?code=LT0006');
+            } catch (ConnectException $e) {
+                $this->app->get('logger')->error("API Response error [Unexpected Response]");
+                return $response->withRedirect('/error?code=LT0003');
             }
         } 
         return $response->withRedirect('/error?code=LT0000');

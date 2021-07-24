@@ -11,6 +11,8 @@
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" defer ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/localization/messages_ja.min.js"></script>
     <script>
     $(function(){
         $('a[href^="#"]').click(function() {
@@ -23,4 +25,25 @@
         });
     });
     </script>
+    <style type="text/css">
+    <!--
+.modal {
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.5s, transform 0s 0.5s;
+}
+.modal-content{
+  transform: scale(1.2);
+  transition: 0.5s;
+}
+.is-show{
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.5s;
+}
+.is-show .modal-content{
+  transform: scale(1);
+}
+    -->
+    </style>
 @endsection
