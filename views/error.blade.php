@@ -20,7 +20,7 @@
         </div>
 </article>
 <p>エラー内容に心当たりがない場合は、もう一度同じ操作を繰り返してください。</p>
-<p>解消しない場合は上記のErrorCodeをつけて、主催までごお問い合わせください。</p>
+<p>解消しない場合は上記のErrorCodeをつけて、主催までお問い合わせください。</p>
 </div>
 <div class="column">
 <a class="button is-small" href="/"> TOPへもどる </a>
