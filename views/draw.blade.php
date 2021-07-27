@@ -21,7 +21,7 @@
               <form>
                 <div class="field">
                   <label class="label">メールアドレス（必須）</label>
-                  <p class="control has-icons-left has-icons-right" />
+                  <p class="control has-icons-left has-icons-right">
                   <input id="mail" name="mail" class="input is-rounded" type="email" placeholder="メールアドレス" minlength="5" maxlength="64" required>
                   <span class="icon is-small is-left">
                     <i class="fa fa-envelope"></i>

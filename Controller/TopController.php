@@ -11,10 +11,14 @@ class TopController
     public function __construct(Container $app)
     {
         $this->app = $app;
+        $this->maintenance = false;
     }
 
     public function index(Request $request, Response $response)
     {
+        if ($this->maintenance) {
+            return $this->app->view->render($response, 'maintenance');
+        }
         // $this->app->get('logger')->info("info log"); // - level 3
         // $this->app->get('logger')->warn("warn log"); // - level 2
         // $this->app->get('logger')->error("error log"); // - level 1
@@ -50,6 +54,9 @@ class TopController
                 break;
             case 'LT0006':
                 $mess = 'ユーザー情報の取得に失敗しました。';
+                break;
+            case 'LT0007':
+                $mess = 'ユーザーが存在しません。メールアドレスをご確認ください。';
                 break; 
             default:
                 $this->app->get('logger')->fatal("Unexpectedex Error!"); 

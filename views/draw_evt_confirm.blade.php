@@ -17,7 +17,7 @@
             <p>5ポイント消費してくじを引きますか？ </p>
             <br>
             <p>
-              <strong>この操作は必ず、企画本部スタッフ前で行ってください。</strong>
+              <strong>操作前に、一度この画面を企画本部スタッフにお見せください。</strong>
             </p>
             <div class="columns">
               <div class="column">
@@ -54,4 +54,11 @@
     </div>
   </section>
 </div>
+<script type="text/javascript">
+$(function() {
+  $('input[type="button"]').on('click', function() {
+     $(this).prop('disabled', true);
+  });
+});
+</script>
 @endsection

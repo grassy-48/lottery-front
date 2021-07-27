@@ -60,7 +60,10 @@
 </div>
 <script type="text/javascript">
 $(function() {
-    $("#entryForm").validate();
-})
+  $("#entryForm").validate();
+  $('input[type="button"]').on('click', function() {
+     $(this).prop('disabled', true);
+  });
+});
 </script>
 @endsection

@@ -34,7 +34,7 @@ class DrawOnlController
                 $uid = $uarr['user']['id'];
                 if (empty($uobj) || (!$uid)) {
                     $this->app->get('logger')->error("User Object is empty."); 
-                    return $response->withRedirect('/error?code=LT0006');
+                    return $response->withRedirect('/error?code=LT0007');
         
                 }
                 $rcobj = $this->http->get('/users/'.$uid.'/draw');

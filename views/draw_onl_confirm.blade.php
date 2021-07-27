@@ -55,4 +55,11 @@
     </div>
   </section>
 </div>
+<script type="text/javascript">
+$(function() {
+  $('input[type="button"]').on('click', function() {
+     $(this).prop('disabled', true);
+  });
+});
+</script>
 @endsection

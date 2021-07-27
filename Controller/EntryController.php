@@ -42,7 +42,8 @@ class EntryController
         foreach ($array['codes'] as $c) {
             array_push($codeimg,
             ['key' => $c['unique_key'],
-            'img' => $this->base."/lottery/img/qr_code/".$c['path']]
+            'img' => $c['path']] 
+            //'img' => $this->base."/lottery/img/qr_code/".$c['path']]
         );
         }
         $array['code_img'] = $codeimg;

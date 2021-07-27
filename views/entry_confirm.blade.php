@@ -4,14 +4,14 @@
 @include('parts/footer')
 @section('title', '入力内容確') 
 @section('content')
-<div class="help column">
+<div class="column">
   <section class="hero is-primary" id="menu">
     <div class="column">
       <h1 class="title"> 入力内容確認 </h1>
       <hr>
       <div class="card">
         <div class="card-content">　
-          <table class="table is-narrow">
+          <table class="table is-narrow is-size-6">
             <tbody>
               <tr>
                 <td>
@@ -49,7 +49,6 @@
               <input type="button" value="キャンセル" onClick="history.back()" class="button is-light">
 　　
               <input type="submit" class="button is-primary" value="登録する">
-              <p class="help is-danger">※登録ボタン押下後、30秒ほどそのままお待ち下さい。</p>
             </div>
           </form>
         </div>
@@ -57,4 +56,11 @@
     </div>
   </section>
 </div>
+<script type="text/javascript">
+$(function() {
+  $('input[type="button"]').on('click', function() {
+     $(this).prop('disabled', true);
+  });
+});
+</script>
 @endsection
