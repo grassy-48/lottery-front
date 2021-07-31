@@ -61,16 +61,17 @@ class DrawOnlController
         return $this->app->view->render($response, 'draw_onl_confirm', $array);
     }
 
+    // NOTE: WebView遷移でtarget="_blank"の際POSTパラメータが消えるためGET遷移
     public function elected(Request $request, Response $response)
     {
-        $postParams = $request->getParsedBody() ?? [];
+        $queryParams = $request->getQueryParams() ?? [];
         $array = [];
-        if (empty($postParams['user_id']) || $postParams['user_id'] === 0) {
+        if (empty($queryParams['user_id']) || $queryParams['user_id'] === 0) {
             $this->app->get('logger')->error("user_id is empty."); 
             return $response->withRedirect('/error?code=LT0000');          
         } 
             try {
-                $uid =$postParams['user_id'];
+                $uid =$queryParams['user_id'];
                 $rcobj = $this->http->get('/users/'.$uid.'/draw');
                 $rcarr = $this->http->toArray($rcobj);
                 if (empty($rcarr) || !$rcarr['canDraw']) {

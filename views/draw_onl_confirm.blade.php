@@ -22,11 +22,8 @@
             <div class="columns">
               <div class="column">
                 <div class="field">
-                  <form action="/draw/onl/elected" method="post">
                   <p>※当選結果は別タブで開きます</p>
-                    <input type="hidden" name="user_id" value="{{$user['id']}}">
-                    <button onclick="this.form.target='_blank'" class="button is-primary">くじを引く</button>
-                  </form>
+                    <a href="/draw/onl/elected?user_id={{$user['id']}}" target="_blank" class="button is-primary">くじを引く</a>
                 </div>
                 <br>
                 <div class="field">

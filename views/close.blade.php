@@ -11,8 +11,10 @@
       <hr>
       <div class="card">
         <div class="card-content">
-          <p>配布可能な景品がなくなりました。</p>
-          <p>たくさんのご参加ありがとうございました！</p>
+          <div class="content">
+            <h3 class="is-3">配布可能な景品がなくなりました。</h3>
+            <p>たくさんのご参加ありがとうございました！</p>
+          </div>
         </div>
       </div>
     </div>

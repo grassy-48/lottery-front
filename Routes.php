@@ -55,7 +55,8 @@ $app->get('/draw/info/{place}/shorted', DrawController::class . ':shorted');
 $app->post('/draw/evt/confirm', DrawEvtController::class . ':confirm');
 $app->post('/draw/evt/elected', DrawEvtController::class . ':elected');
 $app->post('/draw/onl/confirm', DrawOnlController::class . ':confirm');
-$app->post('/draw/onl/elected', DrawOnlController::class . ':elected');
+// NOTE: WebView遷移でtarget="_blank"の際POSTパラメータが消えるためGET遷移
+$app->get('/draw/onl/elected', DrawOnlController::class . ':elected');
 $app->get('/draw', DrawController::class . ':index');
 $app->run();
 
