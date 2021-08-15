@@ -1,4 +1,6 @@
 <?php
+date_default_timezone_set('Asia/Tokyo');
+
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../Controller/DrawController.php';
 require __DIR__ . '/../Controller/DrawEvtController.php';

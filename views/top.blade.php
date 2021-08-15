@@ -22,9 +22,8 @@
           </div>
         </div>
         @endif
-        @if (true) 
+        @if ($viewDrawFlag) 
         <div class="column">
-          <p>テスト終わったらイベント日の12時までボタン隠す</p>
           <div class="buttons">
             <a href="/draw" class="button is-rounded is-large">くじを引く</a>
           </div>
@@ -34,7 +33,7 @@
       <div class="column">
         <article class="message is-warning">
           <div class="message-header">一般参加の方へ </div>
-          <div class="message-body">スマートフォンのカメラアプリでQRコードを読み込んで、ポイントゲット! </div>
+          <div class="message-body">スマートフォンのカメラアプリでペーパーのQRコードを読み込んで、ポイントをゲットしてください！ 2021年10月10日(日)の正午0時からくじを引けるようになります。</div>
         </article>
       </div>
     </div>

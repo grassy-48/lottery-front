@@ -12,6 +12,8 @@ class TopController
     {
         $this->app = $app;
         $this->maintenance = false;
+        $this->targetDate = strtotime("2021-10-10 11:59:59");
+        //$this->targetDate = strtotime("2021-08-15 14:46:00");
     }
 
     public function index(Request $request, Response $response)
@@ -23,7 +25,10 @@ class TopController
         // $this->app->get('logger')->warn("warn log"); // - level 2
         // $this->app->get('logger')->error("error log"); // - level 1
         // $this->app->get('logger')->fatal("fatal log"); // - level 0
-        return $this->app->view->render($response, 'top');
+        $now = strtotime("now"); 
+        $viewDrawFlag = $this->targetDate < $now;
+        //var_dump(date('Y-m-d H:i:s', $now), date('Y-m-d H:i:s', $this->targetDate), $viewDrawFlag);
+        return $this->app->view->render($response, 'top', ['viewDrawFlag' => $viewDrawFlag]);
     }
 
     public function error(Request $request, Response $response)
