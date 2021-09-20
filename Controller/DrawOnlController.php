@@ -15,6 +15,8 @@ class DrawOnlController
     {
         $this->app = $app;
         $this->http = new Http();
+        $this->letterMax = 2;
+        $this->letterImgBaseUrl = "https://ymtk.xyz/lottery/img/loveletter/";
     }
 
     public function confirm(Request $request, Response $response)
@@ -83,6 +85,11 @@ class DrawOnlController
                 if (empty($array)) {
                     $this->app->get('logger')->error("User - Gift Object is empty."); 
                     return $response->withRedirect('/error?code=LT0003');
+                }
+                $array['letterImg'] = $this->letterImgBaseUrl."1.png";
+                if (!empty($array['gift'])) {
+                    $num = $array['gift']['id'] % $this->letterMax + 1;
+                    $array['letterImg'] = $this->letterImgBaseUrl.$num.".png";
                 }
             } catch (BadResponseException $e) {
                 if ($e->hasResponse()) {

@@ -9,8 +9,8 @@
   <button class="delete modal-close"></button>
   <div class="modal-content modal-card">
     <section class="modal-card-body">
-      <figure class="image is-500x500">
-        <img src="http://placehold.jp/500x500.png?text=山月便箋を表示する">
+      <figure class="image is-1078x1361">
+        <img src="{{ $letterImg }}">
       </figure>
     </section>
   </div>
