@@ -15,7 +15,7 @@ class DrawOnlController
     {
         $this->app = $app;
         $this->http = new Http();
-        $this->letterMax = 2;
+        $this->letterMax = 14;
         $this->letterImgBaseUrl = "https://ymtk.xyz/lottery/img/loveletter/";
     }
 
