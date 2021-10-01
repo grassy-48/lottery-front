@@ -27,8 +27,14 @@ class DrawOnlController
             $this->app->get('logger')->error("mail is empty."); 
             return $response->withRedirect('/error?code=LT0000'); 
         }
-
             try {
+                $rcobj = $this->http->get('/gifts');
+                $rcarr = $this->http->toArray($rcobj);
+                if (empty($rcarr) || !$rcarr['canDraw']) {
+                    $this->app->get('logger')->info("Valid Gifts is lack!");  
+                    return $this->app->view->render($response, 'close', $array);
+                }
+                
                 $uobj = $this->http->get('/users', [
                     'mail' => $postParams['mail'],
                 ]);

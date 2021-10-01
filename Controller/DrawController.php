@@ -20,24 +20,6 @@ class DrawController
     public function index(Request $request, Response $response)
     {
         $array = [];
-            try {
-                $rcobj = $this->http->get('/gifts');
-                $rcarr = $this->http->toArray($rcobj);
-                if (empty($rcarr) || !$rcarr['canDraw']) {
-                    $this->app->get('logger')->info("Valid Gifts is lack!");  
-                    return $this->app->view->render($response, 'close', $array);  
-                }
-            } catch (BadResponseException $e) {
-                if ($e->hasResponse()) {
-                    $statusCode = $e->getResponse()->getStatusCode();
-                    $body = $e->getResponse()->getBody();
-                    $this->app->get('logger')->error("API Response error [code: $statusCode, body: $body]");
-                }
-                return $response->withRedirect('/error?code=LT9999');
-            } catch (ConnectException $e) {
-                $this->app->get('logger')->error("API Response error [Unexpected Response]");
-                return $response->withRedirect('/error?code=LT9999');
-            }
         return $this->app->view->render($response, 'draw', $array);
     }
     

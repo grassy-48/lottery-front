@@ -23,7 +23,7 @@
               <div class="column">
                 <div class="field">
                   <p>※当選結果は別タブで開きます</p>
-                    <a href="/draw/onl/elected?user_id={{$user['id']}}" target="_blank" class="button is-primary">くじを引く</a>
+                    <a href="/draw/onl/elected?user_id={{$user['id']}}" class="button is-primary">くじを引く</a>
                 </div>
                 <br>
                 <div class="field">

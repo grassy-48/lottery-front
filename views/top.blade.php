@@ -25,7 +25,7 @@
         @if ($viewDrawFlag) 
         <div class="column">
           <div class="buttons">
-            <a href="/draw" class="button is-rounded is-large">くじを引く</a>
+            <a href="/draw" target="_blank" class="button is-rounded is-large">くじを引く</a>
           </div>
         </div>
         @endif 
