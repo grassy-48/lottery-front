@@ -12,12 +12,16 @@ class TopController
     {
         $this->app = $app;
         $this->maintenance = false;
+        $this->ending = true; 
         $this->targetDate = strtotime("2021-10-10 11:59:59");
         //$this->targetDate = strtotime("2021-08-15 14:46:00");
     }
 
     public function index(Request $request, Response $response)
     {
+        if ($this->ending) {
+            return $this->app->view->render($response, 'ending');
+        }
         if ($this->maintenance) {
             return $this->app->view->render($response, 'maintenance');
         }
